@@ -6636,6 +6636,74 @@ by exp-lbrs.ulp</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="solpad" urn="urn:adsk.eagle:library:364">
+<description>&lt;b&gt;Solder Pads/Test Points&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="LSP10" urn="urn:adsk.eagle:footprint:26494/1" library_version="2">
+<description>&lt;b&gt;SOLDER PAD&lt;/b&gt;&lt;p&gt;
+drill 1.0 mm</description>
+<wire x1="-1.27" y1="0.254" x2="-1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.254" x2="1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.254" x2="1.143" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.254" x2="1.143" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.254" x2="-1.143" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.254" x2="-1.143" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.254" x2="0.635" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="-1.143" y1="-0.254" x2="-0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="0.254" x2="0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="0.254" x2="-0.635" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="-0.254" x2="1.143" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="0.254" x2="-0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="0.254" x2="-1.143" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="-0.254" x2="0.635" y2="-0.254" width="0.1524" layer="51"/>
+<pad name="MP" x="0" y="0" drill="1.016" diameter="2.159" shape="octagon"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="0" y="0.254" size="0.0254" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="LSP10" urn="urn:adsk.eagle:package:26501/1" type="box" library_version="2">
+<description>SOLDER PAD
+drill 1.0 mm</description>
+<packageinstances>
+<packageinstance name="LSP10"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="LSP" urn="urn:adsk.eagle:symbol:26492/1" library_version="2">
+<wire x1="-1.016" y1="2.032" x2="1.016" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="0" x2="1.016" y2="2.032" width="0.254" layer="94"/>
+<circle x="0" y="1.016" radius="1.016" width="0.4064" layer="94"/>
+<text x="-1.27" y="2.921" size="1.778" layer="95">&gt;NAME</text>
+<pin name="MP" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LSP10" urn="urn:adsk.eagle:component:26508/2" prefix="LSP" library_version="2">
+<description>&lt;b&gt;SOLDER PAD&lt;/b&gt;&lt;p&gt; drill 1.0 mm, distributor Buerklin, 12H555</description>
+<gates>
+<gate name="1" symbol="LSP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LSP10">
+<connects>
+<connect gate="1" pin="MP" pad="MP"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:26501/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="POPULARITY" value="52" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6684,6 +6752,8 @@ by exp-lbrs.ulp</description>
 <part name="MGT2" library="BeagleBone_Blue_R3" library_urn="urn:adsk.eagle:library:5828899" deviceset="MOUNTING_HOLE" device="" package3d_urn="urn:adsk.eagle:package:5829439/2"/>
 <part name="C3" library="adafruit" deviceset="C-US" device="C0805K" value="100uF"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="LSP1" library="solpad" library_urn="urn:adsk.eagle:library:364" deviceset="LSP10" device="" package3d_urn="urn:adsk.eagle:package:26501/1"/>
+<part name="LSP2" library="solpad" library_urn="urn:adsk.eagle:library:364" deviceset="LSP10" device="" package3d_urn="urn:adsk.eagle:package:26501/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -6692,6 +6762,7 @@ by exp-lbrs.ulp</description>
 GND
 TX
 RX</text>
+<text x="-104.14" y="81.28" size="1.778" layer="91">Fuse</text>
 </plain>
 <instances>
 <instance part="U2" gate="G$1" x="10.16" y="68.58" smashed="yes">
@@ -6827,6 +6898,12 @@ RX</text>
 </instance>
 <instance part="GND7" gate="1" x="-99.06" y="17.78" smashed="yes">
 <attribute name="VALUE" x="-101.6" y="15.24" size="1.778" layer="96"/>
+</instance>
+<instance part="LSP1" gate="1" x="-99.06" y="76.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="-101.981" y="74.93" size="1.778" layer="95" rot="R90"/>
+</instance>
+<instance part="LSP2" gate="1" x="-106.68" y="76.2" smashed="yes" rot="R270">
+<attribute name="NAME" x="-103.759" y="77.47" size="1.778" layer="95" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -7154,8 +7231,15 @@ RX</text>
 <net name="N$6" class="0">
 <segment>
 <pinref part="E1" gate="P" pin="P"/>
+<wire x1="-114.3" y1="76.2" x2="-109.22" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="LSP2" gate="1" pin="MP"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
 <pinref part="HLK-PM01-5V" gate="G$1" pin="AC2"/>
-<wire x1="-114.3" y1="76.2" x2="-93.98" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="LSP1" gate="1" pin="MP"/>
+<wire x1="-96.52" y1="76.2" x2="-93.98" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
